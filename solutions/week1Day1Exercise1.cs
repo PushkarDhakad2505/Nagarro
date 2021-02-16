@@ -12,9 +12,7 @@ namespace solutions
         }
         static void Main()
         {
-            Console.WriteLine("Pushkar Dhakad");
-         
-
+           
         
 
             A objA = new A();
