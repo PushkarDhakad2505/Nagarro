@@ -6,7 +6,7 @@ namespace solutions
 {
     class Week1Day1Exercise2
     {
-        private static IFormatProvider objectName;
+        
 
         static void Main(string[] args)
         {

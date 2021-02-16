@@ -7,8 +7,8 @@ namespace solutions
     class Week1Day2Exercise1
     {
 
-        static void Main(string[] args)
-        {
+         static void Main(string[] args)
+         {         
             Console.WriteLine("Enter details");
             Console.WriteLine("Enter name");
             String name = Console.ReadLine();

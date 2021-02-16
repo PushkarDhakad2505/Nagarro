@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <StartupObject>solutions.ExceptionHandling</StartupObject>
+    <StartupObject>RemainingAssignment.Week1Day3Exercise1</StartupObject>
   </PropertyGroup>
 
 </Project>

@@ -6,11 +6,9 @@ namespace solutions
 {
     class Week1Day1Exercise3
     {
-
-
-
         static void Main(string[] args)
         {
+
             while (true)
             {
                 Console.WriteLine("Enter first number");
@@ -51,16 +49,12 @@ namespace solutions
                     Console.WriteLine("First number should be less than second one");
                     Console.WriteLine("Enter the numbers again");
 
-
-
                 }
             }
+
+
+
         }
-
-
-
-
-
 
     }
 }

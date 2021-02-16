@@ -7,10 +7,6 @@ namespace solutions
     class Week1Day3Exercise2
     {
 
-
-
-
-
         static void Main()
         {
             List<Ducks> DuckList = new List<Ducks>();
@@ -101,9 +97,7 @@ namespace solutions
             public void ShowDetails() { }
 
         }
-
-
-
-
     }
+
 }
+
