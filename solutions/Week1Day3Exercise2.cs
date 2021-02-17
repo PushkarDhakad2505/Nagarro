@@ -25,7 +25,7 @@ namespace solutions
                 switch (getChioce)
                 {
                     case 1:
-                        Console.WriteLine("1.Enter num of wings wings");
+                        Console.WriteLine("1.Enter num of wings ");
                         int wing = Int32.Parse(Console.ReadLine());
                         Console.WriteLine("2.Enter weight of duck");
                         int weight = Int32.Parse(Console.ReadLine());
