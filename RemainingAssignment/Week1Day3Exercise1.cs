@@ -26,15 +26,15 @@ namespace RemainingAssignment
                 Console.WriteLine("8.	List all equipment that have not been moved till now");
                 Console.WriteLine("9.	Delete all equipment");
                 Console.WriteLine("10.	Delete all immobile equipment");
-                Console.WriteLine("10.	Delete all mobile equipment");
-                Console.WriteLine("11.	Exit");
+                Console.WriteLine("11.	Delete all mobile equipment");
+                Console.WriteLine("12.	Exit");
                 int input2=Int32.Parse(Console.ReadLine());
 
 
                 switch(input2)
                 {
                     case 1:
-                        Console.WriteLine("1.	Create an equipment ");
+                        Console.WriteLine("1.Create an equipment ");
 
                         Console.WriteLine("Enter details");
                         Console.WriteLine("Enter name");
@@ -78,20 +78,50 @@ namespace RemainingAssignment
 
                         break;
                     case 2:
-                        break;
-                    case 3:
+                        int i = 0;
                         foreach (Equipment equip in EquipList)
                         {
-                            Console.WriteLine("Enter distance to be move");
-                            int d = Int32.Parse(Console.ReadLine());
-
-                            equip.moveBy(d);
+                                
+                            Console.WriteLine("No."+i+equip.name);
+                            i++;
                         }
+
+
+                            Console.WriteLine("Enter number of equipment to remove");
+                        int indexNum = Int32.Parse(Console.ReadLine());
+                        EquipList.RemoveAt(indexNum);
+                        break;
+                    case 3:
+                        int i1 = 0;
+
+                        foreach (Equipment equip1 in EquipList)
+                        {
+
+                            Console.WriteLine("No." + i1 + equip1.name);
+                            i1++;
+                        }
+
+                        Console.WriteLine("Enter number of equipment to  which you are trying to move");
+                        int indexNum1 = Int32.Parse(Console.ReadLine());
+
+                     
+                        Console.WriteLine("Enter distance to be move");
+                        int d = Int32.Parse(Console.ReadLine());
+
+                        EquipList[indexNum1].moveBy(d);
+                
 
 
                         break;
                     case 4:
-                        break;
+                        foreach (Equipment equip in EquipList)
+                        {
+                            Console.WriteLine(equip.name);
+                        
+                        }
+
+
+                            break;
                     case 5:
                         foreach (Equipment equip in EquipList)
                         {
@@ -131,15 +161,39 @@ namespace RemainingAssignment
 
 
 
+
+
                         break;
                     case 9:
                         EquipList.Clear();
                         break;
                     case 10:
-                        
+                        foreach (Equipment equip in EquipList.ToArray())
+                        { 
+                            if(equip.type_of_equip == (int)Equipment.equipmentType.IMMOBILE)
+                            {
+                                EquipList.Remove(equip);
+                            }
+                                    
+                                    
+                        }
+                            break;
+                    case 11:
+                        foreach (Equipment equip in EquipList.ToArray())
+                        {
+                            
+                            if (equip.type_of_equip == (int)Equipment.equipmentType.MOBILE)
+                            {
+                                
+                                EquipList.Remove(equip);
+                                
+                            }
+
+
+                        }
 
                         break;
-                    case 11:
+                    case 12:
                         return;
 
 
