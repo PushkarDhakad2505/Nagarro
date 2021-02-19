@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <StartupObject>solutions.LambdaAndDelegates</StartupObject>
+    <StartupObject>PractiseProblems.delegatesBasic1</StartupObject>
   </PropertyGroup>
 
 </Project>
