@@ -11,6 +11,7 @@ namespace solutions
 
     public delegate bool BoolDelegateK(int i,int k);
 
+
     class Methods
     {
         public static void  AllMethod(List<int> IList,BoolDelegate isTrue)
@@ -25,16 +26,37 @@ namespace solutions
             }
         }
 
-        public static void AllMethodK(List<int> IList, BoolDelegateK isTrue,int k)
+        public static bool AllMethodKBool(List<int> IList, BoolDelegateK isTrue,int k)
         {
-
+            int flag = 0;
+            
             foreach (int i in IList)
             {
                 if (isTrue(i,k))
                 {
-                    Console.Write(i + " ");
+                    flag = 1;
                 }
                 
+            }
+            if (flag == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static void AllMethodK(List<int> IList, BoolDelegateK isTrue, int k)
+        {
+
+            foreach (int i in IList)
+            {
+                if (isTrue(i, k))
+                {
+                    Console.Write(i + " ");
+                }
+
             }
         }
 
@@ -56,6 +78,7 @@ namespace solutions
 
             Console.WriteLine("Even using Lambda");
             Methods.AllMethod(intList,i=>i%2==0);
+            Console.WriteLine("");
             Console.WriteLine("even method");
             BoolDelegate isTrue2 = new BoolDelegate(evenMethod);
             Methods.AllMethod(intList, isTrue2);
@@ -64,9 +87,45 @@ namespace solutions
             Methods.AllMethod(intList, i => PrimeMethod(i));
 
             Console.WriteLine("");
-            Console.WriteLine("prime method");
+            Console.WriteLine("prime method using anonymous ");
+            
+
+
             BoolDelegate isTrue3 = new BoolDelegate(PrimeMethod);
+            BoolDelegate isTrue12 = delegate (int i)
+            {
+                int isPrime = 1;
+                for (int j = 2; j < (i / 2) + 1; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        isPrime = 0;
+                        return false;
+
+                    }
+                }
+                if (isPrime == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+            };
+
+
+
+
             Methods.AllMethod(intList, isTrue3);
+
+
+
+
+
+            Console.WriteLine("");
             Console.WriteLine("greater than five method");
             BoolDelegate isTrue4 = new BoolDelegate(ElementGtThanFiveMethod);
             Methods.AllMethod(intList, isTrue4);
@@ -88,10 +147,55 @@ namespace solutions
             Console.WriteLine("equal  to 3k+1 method");
             BoolDelegateK isTrue7 = new BoolDelegateK(Find3kPlus1);
             Methods.AllMethodK(intList, isTrue7,k);
+
+
+
+            Console.WriteLine("");
+            Console.WriteLine("equal  to 3k+1 using anonymous method");
+
+            BoolDelegateK isTrue11 = delegate (int i,int k) 
+            {
+                if (i == (3 * k) + 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            };
+
+            Methods.AllMethodKBool(intList,isTrue11,k);
+
             Console.WriteLine("");
             Console.WriteLine("equal  to 3k+2 method");
             BoolDelegateK isTrue8 = new BoolDelegateK(Find3kPlus2);
             Methods.AllMethodK(intList, isTrue8,k);
+
+            Console.WriteLine("");
+            Console.WriteLine("find anything method using anonymous method");
+            Console.WriteLine("Enter a number to find if it exist or not ");
+            int key = Int32.Parse(Console.ReadLine());
+            BoolDelegateK isTrue10=delegate (int i,int k) 
+            {
+                if (i == k)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            };
+            Console.WriteLine(Methods.AllMethodKBool(intList,isTrue10,key));
+
+            Console.WriteLine("Find Anything using normal delegate");
+            BoolDelegateK isTrue9 = new BoolDelegateK(FindAnything);
+            Console.WriteLine(Methods.AllMethodKBool(intList, isTrue9, key));
+
+            
 
         }
         public static bool evenMethod(int i)
@@ -192,6 +296,22 @@ namespace solutions
                 return false;
             }
         }
+
+        public static bool FindAnything(int i, int k)
+        {
+            if (i == k)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
+
     }
 }
 
