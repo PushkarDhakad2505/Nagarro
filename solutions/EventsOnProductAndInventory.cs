@@ -4,16 +4,34 @@ using System.Text;
 namespace solutions
 {
     public  delegate void InventoryDelegate();
+
+    public delegate void InventoryPriceDelegate();
     class Product
     {
-       
+        public event  InventoryDelegate  EventTORemove;
+        public event InventoryPriceDelegate EventTOChangePrice;
         public int id;
         public double price;
         public bool isDefective;
+        Inventory i = new Inventory();
+
+
         public void defective()
         {
             isDefective = true;
+            EventTORemove?.Invoke();
         }
+        public void ChangePrice()
+        {
+            price = 10;
+            EventTOChangePrice?.Invoke();
+        }
+
+
+
+
+
+
         public Product(){}
         public Product(int id, double price, bool isDefective)
         {
@@ -24,6 +42,9 @@ namespace solutions
     }
     class Inventory
     {
+
+        
+
 
 
         public event InventoryDelegate RemovingDefective;
@@ -71,7 +92,7 @@ namespace solutions
         }
         public void getValue()
         {
-            RemoveDefective();
+            //RemoveDefective();
             CalculateValue();
             Console.WriteLine("Invent value "+Inventvalue);
         }
@@ -87,15 +108,29 @@ namespace solutions
             
             Inventory invent = new Inventory();
 
-            /*monitor.defective();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //monitor.defective();
+            //
             invent.RemovingDefective += a;
-            invent.OnRemovingDefective();
-            void a() 
-            {
-                Console.WriteLine("*******");
-                invent.RemoveDefective();
-            }
-            */
+            //invent.OnRemovingDefective();
+           
             invent.AddProduct(laptop,10);
             invent.AddProduct(monitor, 20);
             invent.AddProduct(mouse, 30);
@@ -118,15 +153,48 @@ namespace solutions
 
             Console.WriteLine("--------------------");
             Console.WriteLine(monitor.price);
-            monitor.price = 50000;
+
+
+            ////////////////////////////
+
+            monitor.EventTOChangePrice += b;
+            monitor.ChangePrice();
+            void b()
+            {
+
+                Console.WriteLine("+++++++++");
+                invent.CalculateValue();
+            }
+
+
+            ///////////////////////
+
+
             invent.getValue();
 
             Console.WriteLine(monitor.price);
             Console.WriteLine("--------------------");
             Console.WriteLine("--------------------");
-            monitor.isDefective = true;
+           // monitor.isDefective = true;
             
             invent.getValue();
+
+            monitor.EventTORemove += a;
+            monitor.defective();
+            void a()
+            {
+                Console.WriteLine("*******");
+                invent.RemoveDefective();
+            }
+
+
+
+
+
+
+
+            invent.getValue();
+
         }
     }
 }
