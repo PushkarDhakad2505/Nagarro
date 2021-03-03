@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <title>Enrollment</title>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--favicon-->
+        <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+        <link rel="manifest" href="..//faviconsite.webmanifest">
+        <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+        
+        <script src="../javaScript/EnrollmentJS.js"></script>
+        <link rel="stylesheet"  type="text/css" href="../CSS code/EnrollmentCSS.css">
+
+    </head>
+    <body>
+        <div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="styleDiv">
+                        <h2 id="heading" >Student Enrollment Form</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-12 ">
+                    <div class="center-style-Div">
+                        <form  id="formId">
+                            <div class="form-group" id ="container">
+                                
+                                <div  class="row ">
+                                    <div class="col-lg-4  col-xs-12"> <label class ="labelName" >Name</label></div>
+                                    <div class="col-lg-6 col-xs-12  "><input  class ="inputField col-75" id="nameBox"  required placeholder="Enter name"  name ="nameBox" autofocus  type="text"></input>  </div>        
+                                </div>
+                                
+                                <div  class="row ">
+                                    <div class="col-lg-4 col-xs-12"><label class ="labelName">Email</label></div>
+                                    <div class="col-lg-6 col-xs-12"><input  class ="inputField col-75"   id="emailBox" required  name ="emailBox" placeholder="Enter Email Id"   type="email"></input></div>          
+                                </div>
+                                <div  class="row">
+                                    <div class="col-lg-4 col-xs-12"><label class ="labelName">Website</label></div>
+                                    <div class="col-lg-6 col-xs-12"><input  class ="inputField col-75"  id="websiteBox" required  name ="websiteBox"  placeholder="Enter website name"  type="url"></input></div>          
+                                </div>
+                                <div  class="row">
+                                    <div class="col-lg-4 col-xs-12"> <label class ="labelName">Select Image</label></div>
+                                    <div class="col-lg-6 col-xs-12"><input  class ="inputField col-75"   id="imageBox" required  name ="imageBox" placeholder="Enter image path"  type="text"></input></div>         
+                                </div>
+                                
+                                <div class="row ">
+                                    <div  class ="  col-lg-4 col-xs-12" > 
+                                        <div>
+                                            <label class ="  labelName" id="GenderLabel">Gender</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-8 ">
+                                        <div class="row  ">
+                                            <div class="col-lg-6 ">
+                                                <div>
+                                                    <input class ="inputField"  id="MaleRadio" value="MaleRadio" type="radio" name="gender"></input>
+                                                    <label id="G1"  for="MaleRadio">Male</label>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 ">
+                                                <div>
+                                                    
+                                                    <input class ="inputField"   id="femaleRadio" value="femaleRadio" type="radio" name="gender"></input>
+                                                    <label id="G2"for="femaleRadio">Female</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>     
+                                </div>
+                            
+                                <div  class="row">
+                                    <div class="col-lg-4 col-xs-12">
+                                        <div>
+                                            <label class ="labelName">Skills</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div>
+                                                    <input id="JavaBox" class ="inputField" type="checkbox">JAVA</input>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div>
+                                                    <input id="HTMLBox" class ="inputField" type="checkbox">HTML</input>
+                                                </div>
+                                            </div>
+                                            <div class="  col-lg-4">
+                                                <div>
+                                                    <input id="CSSBox" class ="inputField" type="checkbox">CSS</input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-xs-12">
+                                        <div>
+                                            <input  class="buttonClass col-button-75  btn" id="submitButton" onclick="AddRow()" type="button" name="EnrollStudent" id="btn" value="Enroll Student">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4  col-xs-12">
+                                        <div>
+                                            <input  class="buttonClass btn" id="clearButton" type="reset" name="Clear"  value="Clear">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="col-lg-1 col-sm-12 d-none d-lg-block hidden-lg-down  ">
+                    <div class="center-style-Div">
+                        <div id="verticalLine"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 mx-5 mx-lg-0 ">
+                    <div class="center-style-Div">
+                        <table id="showTable" >
+                            <caption  style="caption-side:top">
+                                <div>
+                                    <h4>Enrolled Students</h4>
+                                </div>
+                            </caption>
+                            <thead  id="show">
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Image</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="styleDiv">
+                        <footer align="center">
+                            <p>Copyright 2020-2021 by Fresher Training Team</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <style>
+        
+    </style>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

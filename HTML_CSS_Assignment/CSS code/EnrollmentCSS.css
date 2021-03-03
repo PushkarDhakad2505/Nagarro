@@ -1,0 +1,142 @@
+.styleDiv{
+    margin: 3px;
+    min-height: 30px;
+}
+.center-style-Div{
+    margin: 3px;
+    min-height: 500px;
+}
+h2{
+    color:white;
+    background-color: rgb(80, 219, 173);
+    text-align: center;
+}
+body{
+    border: 1px solid black;
+    border-style: solid;
+    border-top-style: none;
+    border-color: black;
+}
+#heading{
+    padding-top: 0%;
+    border-color: black;
+    border-left: none;
+    border-right: none;
+    border-style: solid;
+    margin-top: 0%;
+}
+input{
+    padding: 0%;
+    margin: 5px;
+    border-radius: 6px;
+}
+
+footer{
+    color:white;
+    background-color: rgb(80, 219, 173);
+    margin: 0%;
+    padding: 0%;
+}
+#verticalLine{
+    border-left: 3px solid green;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    margin-left: 3px;
+    top: 15%;
+    bottom: 15%;
+}
+#WholeTableSection{
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    padding :15px;
+}
+#tableWithHeader{
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding :15px;
+}
+td{
+    border: 1px solid black;
+}
+th{
+    border: 1px solid black;
+}
+table{
+    margin-top: 14px;
+    text-align: left;
+    border: 1px solid black;
+}
+#showTable th{
+    font-size: 20px;
+}
+form{
+    padding-left: 5%;
+    padding-top: 3%;
+    padding-bottom: 5%;
+}
+#submitButton{
+    background-color:blue;
+    color: white;
+}
+#clearButton{
+    background-color:red;
+    color: white;
+}
+.inputField{
+    padding : 10px;
+    margin-left: 20px;
+}
+#showTable{
+    border: 1px solid black;
+}
+tr{
+    font-size: 13px;
+    border: 1px solid black;
+}
+th{
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+}
+#MaleRadio{
+    left: 100px;
+}
+#femaleRadio{
+    left: 87px;
+}
+#showTable.even {
+    border-collapse: collapse;
+}
+tr:nth-child(odd){
+    background-color : rgba(209, 219, 173,.7);
+}
+tr:nth-child(1){
+    color: white;
+    background-color :rgb(167, 187, 96)
+}
+.col-75 {
+    width: 100%;
+}
+@media screen and (max-width: 993px) {
+    .col-75{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .col-75{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 300px) {
+    .col-75{
+        width: 70%;
+    }
+}
+@media screen and (max-width: 300px) {
+    .col-button-75{
+        width: 70%;
+        border: 3px solid yellow;
+    }
+}
