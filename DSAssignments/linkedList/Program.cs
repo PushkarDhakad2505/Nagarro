@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace linkedList
 {
@@ -21,6 +22,7 @@ namespace linkedList
                 Console.WriteLine("6. for center ");
                 Console.WriteLine("7. for deleteAt ");
                 Console.WriteLine("8. for reversing ");
+                Console.WriteLine("9. for iterating");
                 int input = int.Parse(Console.ReadLine());
 
                 //insertion at the end
@@ -80,10 +82,21 @@ namespace linkedList
                 {
                     l1.Reverse();
                 }
+                else if (input==9)
+                {
+                    IEnumerable<int> ele = l1.iterator();
+                    foreach (var element in ele)
+                    {
+                        Console.WriteLine(element);
+                    }
+                }
                 else
                 {
                     break;
                 }
+
+                
+
             }
         }
     }

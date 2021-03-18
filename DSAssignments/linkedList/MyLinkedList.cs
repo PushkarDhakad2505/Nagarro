@@ -6,7 +6,6 @@ namespace linkedList
 {
     class MyLinkedList<Type>
     {
-
         //Represent root element of linked list
         public Node<Type> Head;
         Node<Type> tempNode { get; set; }
@@ -33,7 +32,6 @@ namespace linkedList
         public void InsertAtEnd(Type data)
         {
             Node<Type> TempNode = new Node<Type>(data);
-            
             //checking if linked list is empty or not
             if (Head == null)
             {
@@ -57,8 +55,6 @@ namespace linkedList
         {
             try
             {
-
-
                 //if entered index is larger than size of linked list then throw error
                 if (index > Size())
                 {
@@ -81,9 +77,6 @@ namespace linkedList
                     }
                     PreviousNode.next = TemperoryNode;
                     TemperoryNode.next = TempNode;
-
-
-
                 }
             }
             catch (InvalidIndexInputException iiiException)
@@ -110,7 +103,6 @@ namespace linkedList
             {
                 Console.WriteLine(eleException);
             }
-
         }
         //function to delete data at specified index/position
         public void DeleteAt(int index)
@@ -120,7 +112,6 @@ namespace linkedList
             { 
                 if (Head != null && index < Size())
                 {
-
                     if (index == 0)
                     {
                         //Node<Type> TempNode = Head;
@@ -128,7 +119,6 @@ namespace linkedList
                     }
                     else
                     {
-
                         Node<Type> TemperoryNode = Head;
                         Node<Type> PreviousNode = null;
                         //previous node will keep track of one node before the current node
@@ -163,7 +153,6 @@ namespace linkedList
                 TempNode = TempNode.next;
             }
             return (TempNode.data);
-
         }
         //below function is used to reverse linked list
         public void Reverse()
@@ -180,7 +169,6 @@ namespace linkedList
                 TempNode = NextNode;
             }
             Head = PreviousNode;
-
         }
         //it will return size of linked list
         public int Size()
@@ -192,7 +180,6 @@ namespace linkedList
                 length++;
                 TempNode = TempNode.next;
             }
-            
             return length;
         }
         //used to traverse or print linked list
@@ -203,6 +190,15 @@ namespace linkedList
             {
                 Console.WriteLine(tempNode.data);
                 tempNode = tempNode.next;
+            }
+        }
+        public IEnumerable<Type> iterator()
+        {
+            Node<Type> temp = Head;
+            while (temp != null)
+            {
+                yield return temp.data;
+                temp = temp.next;
             }
         }
     }

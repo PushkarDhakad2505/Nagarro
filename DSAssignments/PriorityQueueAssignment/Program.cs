@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Queue
+namespace PriorityQueueAssignment
 {
     class Program
     {
         static void Main(string[] args)
         {
-            
-            MyQueue<int> q1 = new MyQueue<int>();
+
+            MyPriorityQueue<int> q1 = new MyPriorityQueue<int>();
             while (true)
             {
 
@@ -23,12 +23,17 @@ namespace Queue
                 Console.WriteLine("8. for Traverse ");
                 int input = int.Parse(Console.ReadLine());
                 int number;
+                int priority;
                 switch (input)
                 {
                     case 1:
+                        
                         Console.WriteLine("Please enter a number to be enqueue");
-                         number = int.Parse(Console.ReadLine());
-                        q1.Enqueue(number);
+                        number = int.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Please enter Priority");
+                        priority = int.Parse(Console.ReadLine());
+                        q1.Enqueue(priority,number);
                         break;
                     case 2:
                         q1.Dequeue();
@@ -62,6 +67,8 @@ namespace Queue
                         break;
                 }
             }
+
+
         }
     }
 }

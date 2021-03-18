@@ -42,7 +42,6 @@ namespace StackDataStructure
                 Console.WriteLine(eleException);
             }
 
-
         }
         public void Peek()
         {
@@ -102,7 +101,6 @@ namespace StackDataStructure
             }
         }
 
-
         public void Reverse()
         {
             Node<Type> NextNode = null;
@@ -117,6 +115,16 @@ namespace StackDataStructure
                 TempNode = NextNode;
             }
             Top = PreviousNode;
+
+        }
+        public IEnumerable<string> iterator()
+        {
+            Node<Type> temp = Top;
+            while (temp != null)
+            {
+                yield return temp.data.ToString();
+                temp = temp.next;
+            }
 
         }
 

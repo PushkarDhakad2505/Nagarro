@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace StackDataStructure
 {
     class Program
@@ -46,11 +48,18 @@ namespace StackDataStructure
                         s1.Reverse();
                         break;
                     case 7:
+                        IEnumerable<string> ele = s1.iterator();
+                        foreach (var element in ele)
+                        {
+                            Console.WriteLine(element);
+                        }
                         break;
                     case 8:
                         s1.Traverse();
                         break;
+
                     default:
+                        Environment.Exit(0);
                         break;
                 }
             }
