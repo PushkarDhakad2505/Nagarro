@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,45 +12,58 @@ namespace HashTableAssignment
         //initializing hashtable
         public HashTable(int size)
         {
+
             SizeOfTable = size;
             bucket = new Node<Type>[SizeOfTable];
+            //setting each bucket to null 
             for (int i = 0; i < SizeOfTable; i++)
             {
                 bucket[i] = null;
             }
         }
 
-        //internal methods
+        //it will retun index of bucket based on key of a node
 
         int GetBucketByKey(int x)
         {
             return x % SizeOfTable;
         }
 
+        //it will return current and previous node
         (Node<Type> previous, Node<Type> Current) GetNodeByKey(int keys)
         {
+            //getting index of bucket from key
             int pos = GetBucketByKey(keys);
+            //pre and temp will hold previous and current node respectively
             Node<Type> temp = bucket[pos];
-            Node<Type> p = null;
+            Node<Type> pre = null;
+            //searching for the key in bucket
             while (temp != null)
             {
-                if (temp.key == keys) { return (p, temp); }
-                p = temp;
+                //if found return
+                if (temp.key == keys)
+                {
+                    return (pre, temp); 
+                }
+                pre = temp;
                 temp = temp.next;
             }
+            //else will return null values
             return (null, null);
 
         }
 
-        //insert
+        //insert items and keys in particular bucket
         public void Insert(Type item, int keys)
         {
             int pos = GetBucketByKey(keys);
             Node<Type> newNode = new Node<Type>(item, keys);
+           //if bucket is empty then set first node directly at first position
             if (bucket[pos] == null)
             {
                 bucket[pos] = newNode;
             }
+            //else iterate till the last node of particular bucket and then add
             else
             {
                 Node<Type> temp = bucket[pos];
@@ -63,7 +76,7 @@ namespace HashTableAssignment
             Console.WriteLine("{0} with key {1} inserted at bucket {2}", item, keys, pos);
         }
 
-        //contains(checking if contains value by key)
+        //checking if it contains the key or not
         public bool Containskey(int keys)
         {
             var (prev, current) = GetNodeByKey(keys);
@@ -92,9 +105,11 @@ namespace HashTableAssignment
         public int Size()
         {
             int len = 0;
+            //iterate for every bucket
             for (int i = 0; i < SizeOfTable; i++)
             {
                 Node<Type> temp = bucket[i];
+                //iterate for every node in particular bucket
                 while (temp != null)
                 {
                     len = len + 1;
@@ -107,14 +122,20 @@ namespace HashTableAssignment
         //Delete by key
         public void Delete(int keys)
         {
+
+            //getting position from key
             int pos = GetBucketByKey(keys);
+            //getting previous and current node from key
             var (previous, current) = GetNodeByKey(keys);
             try
             {
+                //if key not found
                 if (current == null && previous == null)
                     throw new KeyNotFoundException("KeyNotFoundException");
+                //if key found
                 else
                 {
+                    //first element
                     if (previous == null)
                     {
                         bucket[pos] = current.next;
