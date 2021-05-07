@@ -1,0 +1,34 @@
+<style>
+    .FormBody {
+        background-image: url("https://pixabay.com/get/g81fdf2aab1abde2f35eee8c04931a76677a5a230cc68b6da88884a0c67302d1534fd609dbcb002fc6d873b874e1f3158_1920.jpg");
+    
+    }
+    label{
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+</style>
+
+<div id="FormBody">
+    <div class="form-group">    
+        <label for="title">Title</label>
+        <br>
+        <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control">
+    </div>
+    
+    <div class="form-group">    
+        <label for="description">Category</label>
+        <br>
+        <textarea required type="text" name="description" id="description" class="form-control"> <%= article.description %>    </textarea>
+    </div>
+    <div class="form-group">    
+        <label for="markdown">Content</label>
+        
+        <textarea required type="text" name="markdown" id="markdown" class="form-control"> <%= article.markdown %>   </textarea>
+    </div>
+    
+    <br>
+    <a href="/" class="btn btn-secondary">Cancle</a>
+    <button type="submit" class="btn btn-primary m-2">save</button>
+    
+</div>
