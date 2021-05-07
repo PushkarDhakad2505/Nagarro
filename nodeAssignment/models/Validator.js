@@ -5,6 +5,7 @@ function validationFunction(){
     const createDomPurify=require('dompurify');
     const{JSDOM}=require('jsdom')
     const dompurify=createDomPurify(new JSDOM().window)
+    //setting validations and restriction on title and content 
     articleSchema.pre('validate',function(next){
         if(this.title){
             this.slug=slugify(this.title,{lower:true,strict:true

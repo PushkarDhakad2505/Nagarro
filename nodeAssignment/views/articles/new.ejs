@@ -13,10 +13,12 @@
 </head>
 <body>
 
+        <!--including navbar and background image from common file-->
     <%- include('_nav_and_background')%>
     <div class="container">
     <h1 class="mb-4"> New Article </h1>
     <form action ="/articles" method="POST">
+        <!--including form fields for title category and content from common file-->
         <%- include('_form_fields')%>
     </form>
     </div>
