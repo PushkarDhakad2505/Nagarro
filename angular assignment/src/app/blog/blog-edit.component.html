@@ -1,0 +1,106 @@
+
+<br><br><br>
+
+<section class="heading-section">
+  <h1 class="title text-center">Edit Blogs</h1>
+</section>
+
+<div class="container add-todo-box-container">
+  <div class="add-todo-box">
+
+    <div class="card">
+      <!--card body -->
+      <div class="card-body">
+        <!--form for editing the data-->
+        <form novalidate (ngSubmit)="save()" [formGroup]="blogForm">
+
+          <!--contents of the form-->
+          <div class="form-group row mb-2">
+            <!--title-->
+            <label class="col-md-2 col-form-label" for="title">Title</label>
+            <div class="col-md-8">
+              <input class="form-control" id="title" type="text" placeholder="Title"
+                formControlName="title"
+                [ngClass]="{'is-invalid':(blogForm.get('title')?.touched || blogForm.get('title')?.dirty) && !blogForm.get('title')?.valid}" />
+              <span class="invalid-feedback">
+                 <!-- show error if title field is empty-->
+                <span *ngIf="blogForm.get('title')?.errors?.required">
+                  Please enter blog title.
+                </span>
+                <!-- show error if text in  title field is less than 3-->
+                <span *ngIf="blogForm.get('title')?.errors?.minlength">
+                  The blog title must be longer than 3 charcters.
+                </span>
+              </span>
+            </div>
+          </div>
+
+
+          <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="categories">Categories</label>
+            <div class="col-md-8">
+              <input class="form-control" id="categories" type="text" placeholder="Categories"
+                formControlName="categories"
+                [ngClass]="{'is-invalid':(blogForm.get('categories')?.touched || blogForm.get('categories')?.dirty) && !blogForm.get('categories')?.valid}" />
+              <span class="invalid-feedback">
+                <!-- show error if categories field is empty-->
+                <span *ngIf="blogForm.get('categories')?.errors?.required">
+                  Please enter blog categories.
+                </span>
+                <!-- show error if text in  categories field is less than 3-->
+                <span *ngIf="blogForm.get('categories')?.errors?.minlength">
+                  The blog categories must be longer than 3 characters.
+                </span>
+              </span>
+            </div>
+          </div>
+
+
+          <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="content">Content</label>
+            <div class="col-md-8">
+              <textarea class="form-control" id="content" placeholder="Content "
+                formControlName="content" rows="5"
+                [ngClass]="{'is-invalid':(blogForm.get('content')?.touched || blogForm.get('content')?.dirty) && !blogForm.get('content')?.valid}">
+                </textarea>
+              <span class="invalid-feedback">
+                <!-- show error if text in  content field is empty-->
+                <span *ngIf="blogForm.get('content')?.errors?.required">
+                  Please enter blog content.
+                </span>
+                <!-- show error if text in  content field is less than 10-->
+                <span *ngIf="blogForm.get('content')?.errors?.minlength">
+                  The blog content must be longer than 10 charcters.
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <!--buttons for  deleting-->
+          <div class="form-group row mb-2">
+            <div class="offset-md-2 col-md-4">
+              <!--buttons for  saveing changes-->
+              <button class="btn btn-primary mr-3" type="submit" style="width: 80px;"
+                [title]="blogForm.valid ? 'Save your entered data' : 'Disabled until theform data is valid'"
+                [disabled]="!blogForm.valid">Save</button>
+                <!--buttons for  cancelling the update-->
+              <button class="btn btn-outline-secondary mx-3" style="width:80px;" type="button" title="Cancel your edits"
+                [routerLink]="['/blog']">
+                Cancel
+              </button>
+              <!--button for  deleting-->
+              <button class="btn btn-outline-danger" style="width:80px" type="button" title="Delete this product"
+                (click)="deleteBlog()">
+                Delete
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!--show error if there is any -->
+      <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}
+      </div>
+    </div>
+  </div>
+</div>

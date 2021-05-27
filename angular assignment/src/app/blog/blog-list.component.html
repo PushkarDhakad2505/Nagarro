@@ -1,0 +1,22 @@
+<br><br><br>
+
+<section class="heading-section">
+  <h1 class="title text-center">Blogs</h1>
+</section>
+
+<div class="container add-todo-box-container">
+  <div class="add-todo-box">
+    <div *ngFor='let blog of blogs'>
+      <div class="card d-flex justify-content-center" style="width: 18rem;">
+        <div  >
+          <div class="card-body">
+            <h5 class="card-title ">{{blog.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{blog.categories}}</h6>
+            <td><a class='btn btn-outline-success' [routerLink]="['/blogdetails',blog.id]">Details</a></td>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>

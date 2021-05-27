@@ -1,0 +1,87 @@
+<!--card to display conents-->
+<br><br><br>
+<section class="heading-section">
+  <h1 class="title text-center">Create Blog</h1>
+</section>
+
+<div class="container add-todo-box-container">
+  <div class="add-todo-box">
+          
+    <div class="card">
+      <!--card body with form for creating blog-->
+      <div class="card-body">
+        <form novalidate
+        (ngSubmit)="save()"
+        [formGroup]="blogForm">
+
+        <!--elements for form-->
+          <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="title">Title</label>
+            <div class="col-md-8">
+              <input class="form-control" id="title" type="text"
+                placeholder="Enter Title"
+                formControlName="title"
+                [ngClass]="{'is-invalid':(blogForm.get('title')?.touched || blogForm.get('title')?.dirty) && !blogForm.get('title')?.valid}" />
+              <span class="invalid-feedback">
+                <span *ngIf="blogForm.get('title')?.errors?.required">
+                  Please enter blog title.
+                </span>
+                <span *ngIf="blogForm.get('title')?.errors?.minlength">
+                  The blog title must be longer than 3 charcters.
+                </span>
+              </span>
+            </div>
+          </div>
+
+          
+          <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="categories">Categories</label>
+            <div class="col-md-8">
+              <input class="form-control" id="categories" type="text"
+                placeholder="Enter Categories "
+                formControlName="categories"
+                [ngClass]="{'is-invalid':(blogForm.get('categories')?.touched || blogForm.get('categories')?.dirty) && !blogForm.get('categories')?.valid}" />
+              <span class="invalid-feedback">
+                <span *ngIf="blogForm.get('categories')?.errors?.required">
+                  Please enter blog categories.
+                </span>
+                <span *ngIf="blogForm.get('categories')?.errors?.minlength">
+                  The blog categories must be longer than 3 characters.
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label" for="content">Content</label>
+            <div class="col-md-8">
+              <textarea class="form-control" id="content"
+                placeholder="Enter Content"
+                formControlName="content"
+                rows="5"
+                [ngClass]="{'is-invalid':(blogForm.get('content')?.touched || blogForm.get('content')?.dirty) && !blogForm.get('content')?.valid}" >
+              </textarea>
+              <span class="invalid-feedback">
+                <span *ngIf="blogForm.get('content')?.errors?.required">
+                  Please enter blog content.
+                </span>
+                <span *ngIf="blogForm.get('content')?.errors?.minlength">
+                  The blog content must be longer than 10 charcters.
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <!--button to save the data-->
+          <div class="form-group row mb-2">
+            <div class="offset-md-2 col-md-4">
+              <button class="btn btn-primary mr-3" type="submit" style="width: 80px;"
+                [title]="blogForm.valid ? 'Save your entered data' : 'Disabled until theform data is valid'"
+                [disabled]="!blogForm.valid">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+</div>

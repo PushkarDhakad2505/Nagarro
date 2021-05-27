@@ -1,0 +1,37 @@
+
+<br><br>
+
+<section class="heading-section">
+    <h1 class="title text-center">Detailed Blog</h1>
+  </section>
+  
+  <div class="container add-todo-box-container">
+    <div class="add-todo-box">
+        <!--Show div  if blog is available-->
+        <div class="card" *ngIf='blog'>
+            <!-- card title-->
+            <div class="card-header">
+                {{ blog?.title}}
+            </div>
+            <!-- card body-->
+            <div class="card-body">
+                <strong>Category: {{blog?.categories}}</strong><hr>
+                    {{blog?.content}}
+                </div>
+                
+            
+            <!--   back button-->
+            <div class="card-footer">
+                <button class="btn btn-outline-secondary"
+                style="width: 80px;"
+                (click)='onBack()'>
+                <i class=""></i> Back
+            </button>
+             <!--edit button-->
+            <a class="btn btn-outline-primary mx-2" [routerLink]="['/blog',blog?.id,'edit']">
+                <i class=""></i> Edit
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
